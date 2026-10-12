@@ -148,5 +148,12 @@ Projekt przedstawia konfigurację sieci LAN przedsiębiorstwa z naciskiem na wys
 </details>
 
 ## Pliki w repozytorium
-- `Konfiguracje` - Folder z plikami tekstowymi zawierającymi konfigurację (running-config) kluczowych urządzeń sieciowych.
-- `screenshots` - Folder zawierający główny schemat topologii sieci oraz zrzuty ekranu dokumentujące poprawne działanie wdrożonych przeze mnie usług systemowych (AD, GPO, NPS) oraz monitoringu (Zabbix).
+
+📂 **Konfiguracje urządzeń sieciowych (Running-config):**
+* [Konfiguracja Routera Brzegowego (R1)](Konfiguracje/r1-config.txt)
+* [Konfiguracja Switcha L3 (MSW1)](Konfiguracje/msw1-config.txt)
+* [Konfiguracja Switcha L3 (MSW2)](Konfiguracje/msw2-config.txt)
+* [Konfiguracja Switcha Dostępowego (ASW1)](Konfiguracje/asw1-config.txt)
+
+📂 **Pozostałe:**
+- `screenshots/` - Folder zawierający główny schemat topologii sieci oraz zrzuty ekranu dokumentujące poprawne działanie usług.
