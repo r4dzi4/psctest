@@ -1,3 +1,56 @@
+<style>
+  body {
+    background-color: #0d1117;
+    color: #c9d1d9;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    max-width: 1012px;
+    margin: 0 auto;
+    padding: 30px;
+  }
+  a {
+    color: #58a6ff;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: #c9d1d9;
+    border-bottom: 1px solid #21262d;
+    padding-bottom: 0.3em;
+    margin-top: 24px;
+    margin-bottom: 16px;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  table, th, td {
+    border: 1px solid #30363d;
+  }
+  th, td {
+    padding: 10px;
+    background-color: #0d1117;
+  }
+  tr:nth-child(even) td {
+    background-color: #161b22;
+  }
+  details {
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    padding: 12px;
+    background-color: #161b22;
+    margin-bottom: 15px;
+  }
+  summary {
+    cursor: pointer;
+    font-weight: 600;
+  }
+</style>
+
 # Projekt Sieci z Integracją Windows Server
 
 ![Cisco & GNS3](https://img.shields.io/badge/Cisco-GNS3-1BA0D7?style=for-the-badge&logo=cisco&logoColor=white)
