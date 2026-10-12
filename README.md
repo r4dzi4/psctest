@@ -2,4 +2,4 @@
 
 Pełna dokumentacja projektu, opis środowiska, topologia sieci oraz pliki konfiguracyjne i zrzuty ekranu zostały zaprezentowane na dedykowanej stronie internetowej.
 
-🌐 **[Kliknij tutaj, aby zobaczyć stronę projektu](https://[twoj-nick].github.io/[nazwa-repozytorium]/)**
+🌐 **[Kliknij tutaj, aby zobaczyć stronę projektu](https://r4dzi4.github.io/psctest/)**
