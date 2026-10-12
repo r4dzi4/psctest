@@ -1,0 +1,264 @@
+
+!
+! Last configuration change at 15:21:38 UTC Thu Oct 8 2026
+!
+version 15.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+service compress-config
+!
+hostname SW3
+!
+boot-start-marker
+boot-end-marker
+!
+!
+enable secret 5 $1$jlEh$nKuPVAV6KmzjA/W81I3DZ/
+!
+username Radek secret 5 $1$/Fnm$Tj28/XTYR1JdaoxufHS5J/
+aaa new-model
+!
+!
+aaa group server radius RAD_SERVER
+ server-private 10.0.30.100 auth-port 1812 acct-port 1813 key 7 107C081D001C43595F
+!
+aaa authentication login default group RAD_SERVER local
+aaa authorization console
+aaa authorization exec default group RAD_SERVER local if-authenticated 
+!
+!
+!
+!
+!
+!
+aaa session-id common
+!
+!
+!
+!
+!
+ip arp inspection vlan 10,20,30
+!
+!
+!
+ip dhcp snooping vlan 10,20,30
+no ip dhcp snooping information option
+ip dhcp snooping
+ip cef
+no ipv6 cef
+!
+!
+!
+spanning-tree mode rapid-pvst
+spanning-tree portfast edge default
+spanning-tree portfast edge bpduguard default
+spanning-tree extend system-id
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ switchport access vlan 30
+ switchport mode access
+ switchport nonegotiate
+ switchport port-security maximum 3
+ switchport port-security mac-address sticky
+ switchport port-security mac-address sticky 000c.2920.6783
+ switchport port-security
+ ip arp inspection trust
+ negotiation auto
+ spanning-tree portfast edge
+ spanning-tree bpduguard enable
+ ip dhcp snooping trust
+!
+interface GigabitEthernet0/1
+ switchport access vlan 70
+ switchport mode access
+ switchport nonegotiate
+ shutdown
+ negotiation auto
+!
+interface GigabitEthernet0/2
+ switchport access vlan 70
+ switchport mode access
+ switchport nonegotiate
+ shutdown
+ negotiation auto
+!
+interface GigabitEthernet0/3
+ switchport access vlan 70
+ switchport mode access
+ switchport nonegotiate
+ shutdown
+ negotiation auto
+!
+interface GigabitEthernet1/0
+ switchport trunk allowed vlan 10,20,30,40
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 70
+ switchport mode trunk
+ switchport nonegotiate
+ ip arp inspection trust
+ negotiation auto
+ ip dhcp snooping trust
+!
+interface GigabitEthernet1/1
+ switchport trunk allowed vlan 10,20,30,40
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 70
+ switchport mode trunk
+ switchport nonegotiate
+ ip flow ingress
+ ip flow egress
+ ip arp inspection trust
+ negotiation auto
+ ip dhcp snooping trust
+!
+interface GigabitEthernet1/2
+ switchport access vlan 70
+ switchport mode access
+ switchport nonegotiate
+ shutdown
+ negotiation auto
+!
+interface GigabitEthernet1/3
+ switchport access vlan 70
+ switchport mode access
+ switchport nonegotiate
+ shutdown
+ negotiation auto
+!
+interface GigabitEthernet2/0
+ switchport mode access
+ switchport nonegotiate
+ shutdown
+ negotiation auto
+!
+interface GigabitEthernet2/1
+ switchport mode access
+ switchport nonegotiate
+ shutdown
+ negotiation auto
+!
+interface GigabitEthernet2/2
+ switchport mode access
+ switchport nonegotiate
+ shutdown
+ negotiation auto
+!
+interface GigabitEthernet2/3
+ switchport mode access
+ switchport nonegotiate
+ shutdown
+ negotiation auto
+!
+interface GigabitEthernet3/0
+ switchport access vlan 70
+ switchport mode access
+ switchport nonegotiate
+ shutdown
+ negotiation auto
+!
+interface GigabitEthernet3/1
+ switchport access vlan 70
+ switchport mode access
+ switchport nonegotiate
+ shutdown
+ negotiation auto
+!
+interface GigabitEthernet3/2
+ switchport access vlan 70
+ switchport mode access
+ switchport nonegotiate
+ shutdown
+ negotiation auto
+!
+interface GigabitEthernet3/3
+ switchport access vlan 70
+ switchport mode access
+ switchport nonegotiate
+ shutdown
+ negotiation auto
+!
+interface Vlan30
+ ip address 10.0.30.99 255.255.255.0
+!
+interface Vlan40
+ ip address 10.0.40.99 255.255.255.0
+!
+interface Group-Async1
+ physical-layer async
+ no ip address
+ encapsulation slip
+!
+ip forward-protocol nd
+!
+ip http server
+ip http secure-server
+!
+ip ssh server algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+ip ssh client algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+!
+ip access-list standard STACJE_ADMINOW
+ permit 10.0.40.0 0.0.0.255
+!
+!
+!
+!
+!
+snmp-server group ADMINI v3 priv read NOWY_WIDOK access STACJE_ADMINOW
+snmp-server view NOWY_WIDOK iso included
+!
+!
+!
+control-plane
+!
+banner exec 
+IOSv - Cisco Systems Confidential -
+
+Supplemental End User License Restrictions
+
+This IOSv software is provided AS-IS without warranty of any kind. Under no circumstances may this software be used separate from the Cisco Modeling Labs Software that this software was provided with, or deployed or used as part of a production environment.
+
+By using the software, you agree to abide by the terms and conditions of the Cisco End User License Agreement at http://www.cisco.com/go/eula. Unauthorized use or distribution of this software is expressly prohibited.
+
+banner incoming 
+IOSv - Cisco Systems Confidential -
+
+Supplemental End User License Restrictions
+
+This IOSv software is provided AS-IS without warranty of any kind. Under no circumstances may this software be used separate from the Cisco Modeling Labs Software that this software was provided with, or deployed or used as part of a production environment.
+
+By using the software, you agree to abide by the terms and conditions of the Cisco End User License Agreement at http://www.cisco.com/go/eula. Unauthorized use or distribution of this software is expressly prohibited.
+
+banner login 
+IOSv - Cisco Systems Confidential -
+
+Supplemental End User License Restrictions
+
+This IOSv software is provided AS-IS without warranty of any kind. Under no circumstances may this software be used separate from the Cisco Modeling Labs Software that this software was provided with, or deployed or used as part of a production environment.
+
+By using the software, you agree to abide by the terms and conditions of the Cisco End User License Agreement at http://www.cisco.com/go/eula. Unauthorized use or distribution of this software is expressly prohibited.
+
+!
+line con 0
+ password 7 08134D4A0C12544541
+ logging synchronous
+line aux 0
+line vty 0 4
+ password 7 15200A0801217A767B
+!
+!
+end
