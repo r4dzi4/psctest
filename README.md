@@ -150,10 +150,12 @@ Projekt przedstawia konfigurację sieci LAN przedsiębiorstwa z naciskiem na wys
 ## Pliki w repozytorium
 
 📂 **Konfiguracje urządzeń sieciowych (Running-config):**
-* [Konfiguracja Routera Brzegowego (R1)](Konfiguracje/r1-config.txt)
-* [Konfiguracja Switcha L3 (MSW1)](Konfiguracje/msw1-config.txt)
-* [Konfiguracja Switcha L3 (MSW2)](Konfiguracje/msw2-config.txt)
-* [Konfiguracja Switcha Dostępowego (ASW1)](Konfiguracje/asw1-config.txt)
+* [Konfiguracja Routera Brzegowego (R1)](Konfiguracje/R1.txt)
+* [Konfiguracja Switcha L3 (MSW1)](Konfiguracje/MSW1.txt)
+* [Konfiguracja Switcha L3 (MSW2)](Konfiguracje/MSW2.txt)
+* [Konfiguracja Switcha Dostępowego (SW1)](Konfiguracje/SW1.txt)
+* [Konfiguracja Switcha Dostępowego (SW2)](Konfiguracje/SW2.txt)
+* [Konfiguracja Switcha Dostępowego (SW3)](Konfiguracje/SW3.txt)
 
 📂 **Pozostałe:**
 - `screenshots/` - Folder zawierający główny schemat topologii sieci oraz zrzuty ekranu dokumentujące poprawne działanie usług.
