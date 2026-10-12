@@ -1,14 +1,28 @@
+<div align="center">
+  
 # Projekt Sieci z Integracją Windows Server
+
 ![Cisco & GNS3](https://img.shields.io/badge/Cisco-GNS3-1BA0D7?style=for-the-badge&logo=cisco&logoColor=white)
 ![Windows Server](https://img.shields.io/badge/Windows_Server-Active_Directory-0078D6?style=for-the-badge&logo=windows&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 ![Zabbix](https://img.shields.io/badge/Zabbix-D40000?style=for-the-badge&logo=zabbix&logoColor=white)
 
+</div>
+
+## Spis treści
+- [Opis projektu](#opis-projektu)
+- [Topologia sieci](#topologia-sieci)
+- [Architektura Adresacji i VLAN](#architektura-adresacji-i-vlan)
+- [Integracja z Windows Server](#integracja-z-windows-server-i-usługi-systemowe)
+- [Monitorowanie Infrastruktury](#monitorowanie-infrastruktury-zabbix--linux)
+- [Pliki w repozytorium](#pliki-w-repozytorium)
+
 ## Opis projektu
 Projekt przedstawia konfigurację sieci LAN przedsiębiorstwa z naciskiem na wysoką dostępność (High Availability), redundancję oraz bezpieczeństwo. Środowisko sieciowe zintegrowałem z usługami serwerowymi opartymi na systemie Windows Server.
 
 ## Topologia sieci
-<p align="center"> <img src="screenshots/TOPOLOGIA_SIECI.drawio.png" alt="Schemat sieci">
+<p align="center"> 
+  <img src="screenshots/TOPOLOGIA_SIECI.drawio.png" width="90%" alt="Schemat sieci">
 </p>
 
 ### Architektura Adresacji i VLAN
@@ -27,25 +41,45 @@ Projekt przedstawia konfigurację sieci LAN przedsiębiorstwa z naciskiem na wys
 - **Zabezpieczenia Warstwy Dostępowej (L2 Security):** Wdrożyłem mechanizmy chroniące przed atakami w warstwie drugiej na przełącznikach dostępowych. Skonfigurowałem **DHCP Snooping** oraz **Dynamic ARP Inspection (DAI)** dla kluczowych sieci VLAN (10, 20, 30). Dostęp do portów brzegowych zabezpieczyłem dodatkowo za pomocą **Port Security** z restrykcyjnym limitem adresów MAC (opcja sticky).
 - **Scentralizowane uwierzytelnianie (AAA i RADIUS):** Wdrożyłem model AAA na urządzeniach sieciowych, integrując je z serwerem RADIUS działającym w środowisku Windows Server (NPS). Dostęp administracyjny weryfikuję w oparciu o poświadczenia domenowe, a w przypadku niedostępności serwera skonfigurowałem automatyczne przełączanie się urządzeń na lokalną bazę (Fallback).
 
-![Konfiguracja serwera RADIUS (NPS)](screenshots/W2025_RADIUS.png)
+<details>
+  <summary><b>Kliknij, aby zobaczyć konfigurację serwera RADIUS (NPS)</b></summary>
+  <br>
+  <img src="screenshots/W2025_RADIUS.png" width="80%" alt="Konfiguracja serwera RADIUS (NPS)">
+</details>
 
 ### Integracja z Windows Server i Usługi Systemowe
 
 - **Usługi Infrastrukturalne:** W VLAN 30 postawiłem działający **Windows Server**, który dostarcza kluczowe usługi **DHCP** i **DNS** dla maszyn w innych segmentach sieci.
 
-![DNS oraz DHCP](screenshots/DHCP_DNS.png)
+<details>
+  <summary><b>Kliknij, aby zobaczyć konfigurację DNS i DHCP</b></summary>
+  <br>
+  <img src="screenshots/DHCP_DNS.png" width="80%" alt="DNS oraz DHCP">
+</details>
 
 - **Usługi Domenowe (Active Directory AD DS):** Wdrożyłem domenę korporacyjną oraz logiczną strukturę jednostek organizacyjnych (**OU**) odzwierciedlającą podział na działy firmy, wraz z zarządzaniem kontami użytkowników i komputerów.
 
-![Drzewo Active Directory](screenshots/Drzewo_AD.png)
+<details>
+  <summary><b>Kliknij, aby zobaczyć strukturę Active Directory</b></summary>
+  <br>
+  <img src="screenshots/Drzewo_AD.png" width="80%" alt="Drzewo Active Directory">
+</details>
 
 - **Serwer Plików i Mapowanie Dysków (GPO):** Skonfigurowałem centralny serwer plików z odpowiednimi uprawnieniami dostępu (NTFS) podzielonymi na poszczególne działy. Zautomatyzowałem proces podłączania zasobów, wykorzystując zasady grupy (GPO) do dynamicznego mapowania dysków sieciowych po zalogowaniu użytkownika.
 
-![Mapowanie dysków GPO](screenshots/Mapowanie_GPO.png)
+<details>
+  <summary><b>Kliknij, aby zobaczyć mapowanie dysków (GPO)</b></summary>
+  <br>
+  <img src="screenshots/Mapowanie_GPO.png" width="80%" alt="Mapowanie dysków GPO">
+</details>
 
 - **Scentralizowane Zarządzanie i Bezpieczeństwo (GPO):** Skonfigurowałem zasady grupy (**Group Policy Objects**) dla stacji roboczych z systemem Windows 10, w tym zaawansowane zasady audytu systemu (**Advanced Audit Policy**) monitorujące zdarzenia logowania i bezpieczeństwa.
 
-![Konfiguracja GPO](screenshots/GPO.png)
+<details>
+  <summary><b>Kliknij, aby zobaczyć polityki GPO</b></summary>
+  <br>
+  <img src="screenshots/GPO.png" width="80%" alt="Konfiguracja GPO">
+</details>
 
 ## Monitorowanie Infrastruktury (Zabbix & Linux)
 
@@ -57,9 +91,12 @@ Projekt przedstawia konfigurację sieci LAN przedsiębiorstwa z naciskiem na wys
   - Obciążenie pasma na kluczowych łączach oraz zagregowanych portach (EtherChannel / Port-Channel).
   - Bieżący stan operacyjny (UP/DOWN) kluczowych interfejsów.
 
-![Zabbix Dashboard](screenshots/Zabbix_dashboard.png)
-
-![Status SNMP](screenshots/Zabbix_hosts.png)
+<details>
+  <summary><b>Kliknij, aby zobaczyć Dashboardy i statusy w Zabbixie</b></summary>
+  <br>
+  <img src="screenshots/Zabbix_dashboard.png" width="80%" alt="Zabbix Dashboard"><br><br>
+  <img src="screenshots/Zabbix_hosts.png" width="80%" alt="Status SNMP">
+</details>
 
 ## Pliki w repozytorium
 - `Konfiguracje` - Folder z plikami tekstowymi zawierającymi konfigurację (running-config) kluczowych urządzeń sieciowych.
