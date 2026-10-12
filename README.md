@@ -157,5 +157,12 @@ Projekt przedstawia konfigurację sieci LAN przedsiębiorstwa z naciskiem na wys
 * [Konfiguracja Switcha Dostępowego (SW2)](Konfiguracje/SW2.txt)
 * [Konfiguracja Switcha Dostępowego (SW3)](Konfiguracje/SW3.txt)
 
-📂 **Pozostałe:**
-- `screenshots/` - Folder zawierający główny schemat topologii sieci oraz zrzuty ekranu dokumentujące poprawne działanie usług.
+🖼️ **Zrzuty ekranu i schematy:**
+* [Schemat Topologii Sieci](screenshots/TOPOLOGIA_SIECI.drawio.png)
+* [Konfiguracja RADIUS (NPS)](screenshots/W2025_RADIUS.png)
+* [DNS i DHCP](screenshots/DHCP_DNS.png)
+* [Drzewo Active Directory](screenshots/Drzewo_AD.png)
+* [Mapowanie dysków (GPO)](screenshots/Mapowanie_GPO.png)
+* [Konfiguracja GPO](screenshots/GPO.png)
+* [Zabbix - Dashboard](screenshots/Zabbix_dashboard.png)
+* [Zabbix - Status SNMP](screenshots/Zabbix_hosts.png)
